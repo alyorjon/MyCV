@@ -3,20 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV — Python Backend Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<title>CV — Alyorjon Aminboyev</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0d;
-    --surface: #141414;
-    --card: #1a1a1a;
-    --border: #2a2a2a;
-    --accent: #c8f55a;
-    --accent2: #5af5c8;
-    --muted: #666;
-    --text: #e8e8e8;
-    --text2: #aaa;
-    --heading: #ffffff;
+    --bg:       #fafaf8;
+    --surface:  #f2f2ee;
+    --card:     #eeeee9;
+    --border:   #ddddd6;
+    --border2:  #c8c8be;
+    --accent:   #1a1a1a;
+    --green:    #2d6a2d;
+    --green2:   #1a4d1a;
+    --teal:     #1a5c4a;
+    --red:      #c0392b;
+    --muted:    #888880;
+    --text:     #1a1a1a;
+    --text2:    #555550;
+    --text3:    #888880;
+    --heading:  #0a0a0a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,74 +29,138 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    line-height: 1.7;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
     min-height: 100vh;
   }
 
+  /* ── SUBTLE PAPER TEXTURE ── */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 28px,
+        rgba(0,0,0,0.012) 28px,
+        rgba(0,0,0,0.012) 29px
+      );
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
   }
 
   .wrapper {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 56px 48px 72px;
   }
 
-  header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 40px;
+  /* ── LANG SWITCH ── */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
     margin-bottom: 48px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: end;
-    animation: fadeUp 0.6s ease both;
+    animation: fadeIn 0.5s ease both;
   }
 
-  .label {
+  .lang-btn {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
+    padding: 5px 14px;
+    border: 1px solid var(--border2);
+    background: transparent;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .lang-btn:hover { color: var(--text); border-color: var(--accent); }
+
+  .lang-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+    padding-bottom: 40px;
+    margin-bottom: 52px;
+    border-bottom: 2px solid var(--accent);
+    animation: fadeIn 0.5s 0.05s ease both;
+  }
+
+  .role-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
   }
 
   .name {
-    font-family: 'Syne', sans-serif;
-    font-size: 52px;
-    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
     color: var(--heading);
-    line-height: 1;
+    line-height: 0.95;
     letter-spacing: -0.02em;
   }
 
-  .name span { color: var(--accent); }
-
-  .title {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-size: 18px;
+  .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
     color: var(--text2);
-    margin-top: 10px;
+    margin-top: 14px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--green);
+    border: 1px solid #b8d8b8;
+    background: #f0f8f0;
+    padding: 4px 12px;
+    margin-top: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .pulse-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
   }
 
   .contacts {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
+    gap: 7px;
   }
 
   .contact-item {
@@ -101,148 +170,184 @@
     color: var(--text2);
     font-size: 12px;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.15s;
+    font-family: 'DM Mono', monospace;
   }
 
-  .contact-item:hover { color: var(--accent); }
+  .contact-item:hover { color: var(--green); }
 
-  .dot {
-    width: 5px; height: 5px;
+  .c-dot {
+    width: 3px; height: 3px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--border2);
     flex-shrink: 0;
   }
 
-  .lang-switch {
-    display: flex;
-    gap: 2px;
-    margin-bottom: 40px;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-
-  .lang-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .lang-btn.active {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-    font-weight: 600;
-  }
-
+  /* ── LAYOUT GRID ── */
   .cv-grid {
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 0;
+    grid-template-columns: 210px 1fr;
+    gap: 0 52px;
+    animation: fadeIn 0.5s 0.1s ease both;
   }
 
-  .sidebar {
-    border-right: 1px solid var(--border);
-    padding-right: 32px;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
+  /* ── SECTION LABEL ── */
+  .section { margin-bottom: 40px; }
 
-  .main-col {
-    padding-left: 40px;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-
-  .section { margin-bottom: 44px; }
-
-  .section-label {
+  .section-title {
     font-family: 'DM Mono', monospace;
     font-size: 9px;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 18px;
+    color: var(--text3);
+    margin-bottom: 16px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+  /* ── ABOUT ── */
+  .about-text {
+    color: var(--text2);
+    font-size: 12.5px;
+    line-height: 1.75;
   }
 
-  .skill-group { margin-bottom: 20px; }
+  .about-text strong { color: var(--text); font-weight: 600; }
+
+  /* ── SKILLS ── */
+  .skill-group { margin-bottom: 18px; }
 
   .skill-group-name {
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
+    color: var(--text3);
+    margin-bottom: 7px;
+    font-family: 'DM Mono', monospace;
   }
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 
   .tag {
     font-size: 11px;
-    padding: 3px 10px;
+    padding: 3px 9px;
     border: 1px solid var(--border);
     color: var(--text2);
     background: var(--surface);
-    transition: all 0.2s;
+    transition: all 0.15s;
     cursor: default;
+    font-family: 'DM Mono', monospace;
   }
 
-  .tag:hover { border-color: var(--accent); color: var(--accent); }
-  .tag.hi { border-color: #333; color: var(--text); background: var(--card); }
+  .tag:hover { border-color: var(--green); color: var(--green); }
 
+  .tag.hi {
+    border-color: var(--border2);
+    color: var(--text);
+    background: var(--card);
+    font-weight: 500;
+  }
+
+  /* ── LANGUAGE BARS ── */
+  .lang-item { margin-bottom: 13px; }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .lang-name { color: var(--text); font-weight: 500; }
+  .lang-level { color: var(--text3); font-size: 10.5px; font-family: 'DM Mono', monospace; }
+
+  .bar-bg {
+    height: 2px;
+    background: var(--border);
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 14px; }
+
+  .edu-degree {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .edu-school {
+    color: var(--text3);
+    font-size: 11px;
+    margin-top: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── EXPERIENCE ITEMS ── */
   .exp-item {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
     border-bottom: 1px solid var(--border);
-    position: relative;
   }
 
-  .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
   .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 4px;
-    gap: 16px;
+    margin-bottom: 3px;
+    gap: 12px;
   }
 
   .exp-role {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
     font-size: 15px;
     color: var(--heading);
+    line-height: 1.2;
   }
 
   .exp-period {
-    font-size: 11px;
-    color: var(--accent2);
+    font-size: 10.5px;
+    color: var(--teal);
     white-space: nowrap;
+    font-family: 'DM Mono', monospace;
     font-weight: 500;
+    padding-top: 2px;
   }
 
   .exp-company {
-    font-size: 12px;
-    color: var(--accent);
-    margin-bottom: 12px;
+    font-size: 11.5px;
+    color: var(--green);
+    margin-bottom: 10px;
     font-weight: 500;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Sub-role block */
+  .sub-role {
+    margin-bottom: 12px;
+    padding: 9px 12px;
+    border-left: 2px solid var(--border2);
+    background: var(--surface);
+  }
+
+  .sub-role-title {
+    font-size: 10.5px;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'DM Mono', monospace;
   }
 
   .exp-bullets {
@@ -253,7 +358,7 @@
   }
 
   .exp-bullets li {
-    padding-left: 16px;
+    padding-left: 14px;
     position: relative;
     color: var(--text2);
     font-size: 12.5px;
@@ -261,241 +366,201 @@
   }
 
   .exp-bullets li::before {
-    content: '→';
+    content: '–';
     position: absolute;
     left: 0;
-    color: var(--accent);
-    font-size: 11px;
+    color: var(--border2);
+    font-size: 12px;
   }
 
   .exp-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .tech-pill {
+    font-family: 'DM Mono', monospace;
     font-size: 10px;
     padding: 2px 8px;
-    background: #1f2a1a;
-    color: var(--accent);
-    border: 1px solid #2d3d20;
-    letter-spacing: 0.05em;
+    background: var(--surface);
+    color: var(--green2);
+    border: 1px solid #c5d8b8;
+    letter-spacing: 0.03em;
   }
 
-  /* ── GITHUB LINK BADGE ── */
+  /* ── GITHUB LINK ── */
   .gh-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 10px;
-    color: var(--accent2);
-    border: 1px solid #1a3a30;
+    color: var(--teal);
+    border: 1px solid #b0cccc;
     padding: 3px 10px;
-    background: #0d1f1a;
+    background: #f0f7f6;
     text-decoration: none;
     margin-top: 10px;
-    transition: all 0.2s;
-    letter-spacing: 0.05em;
+    transition: all 0.15s;
+    font-family: 'DM Mono', monospace;
   }
-  .gh-link:hover { border-color: var(--accent2); color: var(--accent); }
+
+  .gh-link:hover { border-color: var(--teal); color: var(--green2); }
   .gh-link svg { width: 11px; height: 11px; fill: currentColor; }
 
-  /* ── ARCHITECTURE DIAGRAM ── */
+  /* ── ARCH BLOCK ── */
   .arch-block {
-    margin: 14px 0;
-    padding: 14px 16px;
+    margin: 12px 0;
+    padding: 12px 14px;
     border: 1px solid var(--border);
     background: var(--surface);
     font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--text2);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: auto;
+    border-left: 3px solid var(--border2);
   }
 
-  .arch-block .hl { color: var(--accent); }
-  .arch-block .hl2 { color: var(--accent2); }
+  .arch-block .hl  { color: var(--green2); font-weight: 500; }
+  .arch-block .hl2 { color: var(--teal); font-weight: 500; }
 
   /* ── FEATURE GRID ── */
   .feat-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 12px 0;
+    gap: 6px;
+    margin: 10px 0;
   }
 
   .feat-card {
-    padding: 10px 12px;
+    padding: 9px 11px;
     border: 1px solid var(--border);
     background: var(--surface);
   }
 
   .feat-card-title {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green);
     margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
   }
 
   .feat-card-body {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text2);
     line-height: 1.5;
   }
 
-  .about-text {
-    color: var(--text2);
-    font-size: 13px;
-    line-height: 1.8;
+  /* ── SIDEBAR DIVIDER ── */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    padding-right: 40px;
   }
 
-  .about-text strong { color: var(--accent); font-weight: 500; }
+  .main-col { padding-left: 0; }
 
-  .lang-item { margin-bottom: 14px; }
-
-  .lang-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-size: 12px;
-  }
-
-  .lang-name { color: var(--text); }
-  .lang-level { color: var(--muted); font-size: 11px; }
-
-  .bar-bg { height: 3px; background: var(--border); position: relative; overflow: hidden; }
-
-  .bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    transition: width 1s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--accent2);
-    border: 1px solid #1a3a30;
-    padding: 4px 12px;
-    background: #0d1f1a;
-    margin-top: 16px;
-  }
-
-  .pulse {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent2);
-    animation: pulse 1.5s ease infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .edu-item { margin-bottom: 16px; }
-
-  .edu-degree {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--heading);
-  }
-
-  .edu-school { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
-
+  /* ── FOOTER ── */
   footer {
-    margin-top: 60px;
-    padding-top: 24px;
+    margin-top: 56px;
+    padding-top: 20px;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 11px;
-    color: var(--muted);
+    font-size: 10.5px;
+    color: var(--text3);
+    font-family: 'DM Mono', monospace;
   }
 
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── LANG VISIBILITY ── */
   .lang-en .uz { display: none !important; }
   .lang-uz .en { display: none !important; }
 
-  @media (max-width: 640px) {
-    .wrapper { padding: 30px 20px; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .wrapper { padding: 28px 20px 48px; }
     .cv-grid { grid-template-columns: 1fr; }
     .sidebar { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 32px; margin-bottom: 32px; }
-    .main-col { padding-left: 0; }
     header { grid-template-columns: 1fr; }
     .contacts { align-items: flex-start; }
-    .name { font-size: 36px; }
+    .name { font-size: 40px; }
     .feat-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body::before { display: none; }
+    .top-bar { display: none; }
+    .wrapper { padding: 32px; }
   }
 </style>
 </head>
 <body>
 <div class="wrapper lang-en" id="cv">
 
-  <div class="lang-switch">
+  <!-- TOP BAR -->
+  <div class="top-bar">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('uz')">UZ</button>
   </div>
 
+  <!-- HEADER -->
   <header>
     <div class="name-block">
-      <div class="label">
+      <div class="role-label">
         <span class="en">Python Backend Developer · Middle</span>
         <span class="uz">Python Backend Dasturchi · O'rta daraja</span>
       </div>
-      <div class="name">Alyor<span></span><br>Aminboyev</div>
-      <div class="title">
+      <div class="name">Alyorjon<br>Aminboyev</div>
+      <div class="tagline">
         <span class="en">Building systems that power people's everyday lives.</span>
         <span class="uz">Odamlarning kundalik hayotini ta'minlaydigan tizimlar yarataman.</span>
       </div>
-      <div class="status-badge">
-        <span class="pulse"></span>
+      <div class="availability">
+        <span class="pulse-dot"></span>
         <span class="en">Open to opportunities</span>
         <span class="uz">Ish takliflariga ochiqman</span>
       </div>
     </div>
     <div class="contacts">
       <a class="contact-item" href="tel:+998947046328">
-        <span class="dot"></span>
-        +998 94 704 63 28
+        <span class="c-dot"></span>+998 94 704 63 28
       </a>
       <a class="contact-item" href="mailto:alyor6328@gmail.com">
-        <span class="dot"></span>
-        alyor6328@gmail.com
+        <span class="c-dot"></span>alyor6328@gmail.com
       </a>
       <a class="contact-item" href="https://github.com/alyorjon" target="_blank">
-        <span class="dot"></span>
-        github.com/alyorjon
+        <span class="c-dot"></span>github.com/alyorjon
       </a>
       <a class="contact-item" href="https://t.me/alyor_dev" target="_blank">
-        <span class="dot"></span>
-        t.me/alyor_dev
+        <span class="c-dot"></span>t.me/alyor_dev
       </a>
       <a class="contact-item" href="#">
-        <span class="dot"></span>
-        Fargona, Uzbekistan
+        <span class="c-dot"></span>Fargona, Uzbekistan
       </a>
     </div>
   </header>
 
+  <!-- GRID -->
   <div class="cv-grid">
 
-    <!-- SIDEBAR -->
+    <!-- ══ SIDEBAR ══ -->
     <aside class="sidebar">
 
+      <!-- About -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">About</span>
           <span class="uz">Haqida</span>
         </div>
@@ -507,8 +572,9 @@
         </p>
       </div>
 
+      <!-- Tech Stack -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">Tech Stack</span>
           <span class="uz">Texnologiyalar</span>
         </div>
@@ -544,7 +610,7 @@
         <div class="skill-group">
           <div class="skill-group-name">DevOps / Infra</div>
           <div class="skill-tags">
-            <span class="tag hi">Linux (Ubuntu/Debian)</span>
+            <span class="tag hi">Linux</span>
             <span class="tag">Docker</span>
             <span class="tag">Docker Compose</span>
             <span class="tag">Nginx</span>
@@ -558,7 +624,6 @@
             <span class="tag hi">SAP HANA</span>
             <span class="tag">ERP Admin</span>
             <span class="tag">Business Process</span>
-            <span class="tag">Project Mgmt</span>
             <span class="tag">Payment Gateway</span>
             <span class="tag">Hikvision</span>
           </div>
@@ -572,14 +637,14 @@
             <span class="tag">Asterisk</span>
             <span class="tag">Mikrotik</span>
             <span class="tag">VoIP</span>
-            <span class="tag">DHCP/NAT</span>
             <span class="tag">L2TP</span>
           </div>
         </div>
       </div>
 
+      <!-- Languages -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">Languages</span>
           <span class="uz">Tillar</span>
         </div>
@@ -592,7 +657,7 @@
         </div>
         <div class="lang-item">
           <div class="lang-row">
-            <span class="lang-name">Tajik</span>
+            <span class="lang-name">Tojik</span>
             <span class="lang-level"><span class="en">Native</span><span class="uz">Ona tili</span></span>
           </div>
           <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
@@ -602,7 +667,7 @@
             <span class="lang-name">Русский</span>
             <span class="lang-level">A2</span>
           </div>
-          <div class="bar-bg"><div class="bar-fill" style="width:20%"></div></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:22%"></div></div>
         </div>
         <div class="lang-item">
           <div class="lang-row">
@@ -613,8 +678,9 @@
         </div>
       </div>
 
+      <!-- Education -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">Education</span>
           <span class="uz">Ta'lim</span>
         </div>
@@ -637,7 +703,7 @@
         </div>
         <div class="edu-item">
           <div class="edu-degree">
-            <span class="en">State School · Mathematics & Physics</span>
+            <span class="en">State School · Mathematics &amp; Physics</span>
             <span class="uz">Matematika va fizikaga ixtisoslashtirilgan davlat maktabi</span>
           </div>
           <div class="edu-school">2004–2013</div>
@@ -646,12 +712,12 @@
 
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- ══ MAIN ══ -->
     <main class="main-col">
 
       <!-- EXPERIENCE -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">Experience</span>
           <span class="uz">Ish Tajribasi</span>
         </div>
@@ -665,23 +731,18 @@
             </div>
             <div class="exp-period">2025</div>
           </div>
-          <div class="exp-company">
-            <span class="en">"Munis Savdo" · Fargona</span>
-            <span class="uz">"Munis Savdo" · Farg'ona</span>
-          </div>
+          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
           <ul class="exp-bullets en">
             <li>Led end-to-end SAP Business One implementation: mapped all company business processes from warehouse intake to branch distribution, sales, and customer payments.</li>
             <li>Covered full business lifecycle modules: procurement, inventory, sales, AR/AP, collections, service, marketing, HR, and legal/enforcement workflows.</li>
-            <li>Studied SAP B1 system architecture and SAP HANA database internals over 2 months (Jul–Aug 2025) to build deep platform knowledge for the project.</li>
+            <li>Studied SAP B1 architecture and SAP HANA database internals over 2 months (Jul–Aug 2025) to build deep platform knowledge for the project.</li>
             <li>Coordinated between business units and technical teams to translate real-world processes into SAP B1 configurations and customizations.</li>
-            <li>Leveraged SAP HANA database architecture knowledge to advise on data modeling and query optimization for reporting.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>SAP Business One joriy etishni boshidan oxirigacha boshqardim: tovarni omborga qabul qilishdan filiallarga tarqatish, savdo va to'lovlargacha barcha jarayonlarni xaritaladim.</li>
+            <li>SAP Business One joriy etishni boshidan oxirigacha boshqardim: omborga qabul qilishdan filiallarga tarqatish, savdo va to'lovlargacha barcha jarayonlarni xaritaladim.</li>
             <li>To'liq biznes tsikli modullarini qamrab oldim: sotib olish, inventar, savdo, debitorlik/kreditorlik, qarzlarni undirish, servis, marketing, HR va sud-huquqiy jarayonlar.</li>
-            <li>Loyiha uchun chuqur platforma bilimlari shakllantirish maqsadida 2 oy davomida SAP B1 tizim arxitekturasi va SAP HANA ichki tuzilmasini o'rgandim.</li>
+            <li>2 oy davomida SAP B1 tizim arxitekturasi va SAP HANA ichki tuzilmasini o'rgandim.</li>
             <li>Biznes bo'limlari va texnik jamoalar o'rtasida muvofiqlashtirish: real jarayonlarni SAP B1 konfiguratsiyasiga tarjima qildim.</li>
-            <li>Hisobotlar uchun ma'lumotlarni modellashtirish va so'rovlarni optimallashtirish bo'yicha maslahat berishda SAP HANA bilimlaridan foydalandim.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">SAP B1</span>
@@ -701,47 +762,39 @@
             </div>
             <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span></div>
           </div>
-          <div class="exp-company">
-            <span class="en">"Munis Savdo" · Fargona</span>
-            <span class="uz">"Munis Savdo" · Farg'ona</span>
-          </div>
+          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
 
-          <div style="margin-bottom:14px; padding:10px 14px; border-left:2px solid var(--border); background:var(--surface);">
-            <div style="font-size:11px; color:var(--accent2); font-weight:600; margin-bottom:4px;">
-              <span class="en">↳ ERP System Administrator & Analyst · 6 months</span>
+          <div class="sub-role">
+            <div class="sub-role-title">
+              <span class="en">↳ ERP System Administrator &amp; Analyst · 6 months</span>
               <span class="uz">↳ ERP Tizim Administratori va Analitigi · 6 oy</span>
             </div>
-            <ul class="exp-bullets en" style="margin-top:4px;">
-              <li>Managed user access, system configurations, and daily ERP operations across the company.</li>
-              <li>Built and maintained production-grade ERP analytical reports using complex SQL: customer demographic analysis (age, gender, location), contract analytics, and revenue flow dashboards — all actively running in production.</li>
-              <li>Wrote advanced SQL queries involving subqueries, multi-table JOINs, and aggregate functions (GROUP BY, HAVING, window functions) to extract business insights from large ERP datasets.</li>
-              <li>Gained deep understanding of enterprise data flows, which later informed backend API and data pipeline design decisions.</li>
+            <ul class="exp-bullets en">
+              <li>Built and maintained production ERP analytical reports: customer demographics, contract analytics, and revenue dashboards — all actively running.</li>
+              <li>Wrote advanced SQL with subqueries, multi-table JOINs, and window functions to extract business insights from large ERP datasets.</li>
+              <li>Gained deep understanding of enterprise data flows, informing later backend and API design decisions.</li>
             </ul>
-            <ul class="exp-bullets uz" style="margin-top:4px;">
-              <li>Foydalanuvchi kirish huquqlari, tizim konfiguratsiyalari va kundalik ERP operatsiyalarini boshqardim.</li>
-              <li>Murakkab SQL so'rovlar orqali production darajasidagi ERP tahlil hisobotlarini yaratdim va qo'llab-quvvatladim: mijozlar demografik tahlili, shartnomalar tahlili va pul tushumlari dashboardlari — barchasi hozirda ham ishlamoqda.</li>
-              <li>Katta ERP ma'lumotlar to'plamidan biznes ko'rsatkichlarini olish uchun subquery'lar, ko'p jadvallar bo'yicha JOIN'lar va agregat funksiyalar bilan murakkab SQL so'rovlar yozdim.</li>
-              <li>Korporativ ma'lumotlar oqimini chuqur tushundim; bu keyinchalik backend API va ma'lumotlar pipeline'lari dizayniga asos bo'ldi.</li>
+            <ul class="exp-bullets uz">
+              <li>Production darajasidagi ERP tahlil hisobotlarini yaratdim va qo'llab-quvvatladim: mijozlar demografiyasi, shartnomalar tahlili va daromad dashboardlari.</li>
+              <li>Subquery'lar, ko'p jadvallar JOIN'lari va oyna funksiyalar bilan murakkab SQL so'rovlar yozdim.</li>
+              <li>Korporativ ma'lumotlar oqimini chuqur tushundim; bu keyinchalik backend va API dizayniga asos bo'ldi.</li>
             </ul>
           </div>
 
           <ul class="exp-bullets en">
-            <li>Built a CV/Anketa Telegram bot from scratch in 1 month using aiogram; automated candidate data collection for company HR processes.</li>
-            <li>Designed and developed a real-time automatic payment processing REST API using FastAPI + asyncio; system is actively maintained and upgraded.</li>
-            <li>Built and maintained PostgreSQL schemas using SQLAlchemy ORM and managed migrations with Alembic.</li>
-            <li>Integrated Firebird legacy databases into modern Python backends for HR and business data pipelines.</li>
-            <li>Implemented JWT-based authentication and role-based access control across multiple API services.</li>
-            <li>Set up Redis caching and session management; containerized services with Docker and Docker Compose.</li>
-            <li>Integrated SAP B1 and SAP HANA databases for enterprise ERP data synchronization.</li>
+            <li>Built a CV/Anketa Telegram bot from scratch in 1 month using aiogram; automated candidate data collection for HR processes.</li>
+            <li>Designed and developed a real-time automatic payment processing REST API using FastAPI + asyncio; actively maintained and upgraded.</li>
+            <li>Built PostgreSQL schemas with SQLAlchemy ORM and managed migrations with Alembic.</li>
+            <li>Integrated Firebird legacy databases into modern Python backends for business data pipelines.</li>
+            <li>Implemented JWT auth and role-based access control across multiple API services.</li>
+            <li>Set up Redis caching and session management; containerized services with Docker Compose.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>aiogram yordamida 1 oy ichida CV/Anketa Telegram botini noldan yaratdim; kompaniya HR jarayonlari uchun nomzod ma'lumotlarini to'plashni avtomatlashtirdim.</li>
-            <li>FastAPI + asyncio yordamida real vaqtda ishlaydi avto-to'lov tizimi REST API'sini loyihalab ishga tushirdim; tizim faol ravishda rivojlantirilib borilmoqda.</li>
+            <li>aiogram yordamida 1 oy ichida CV/Anketa Telegram botini noldan yaratdim; HR jarayonlari uchun nomzod ma'lumotlarini to'plashni avtomatlashtirdim.</li>
+            <li>FastAPI + asyncio yordamida real vaqtda ishlaydi avto-to'lov tizimi REST API'sini yaratdim.</li>
             <li>SQLAlchemy ORM bilan PostgreSQL sxemalarini yaratdim; Alembic orqali migratsiyalarni boshqardim.</li>
-            <li>HR va biznes ma'lumotlari uchun Firebird ma'lumotlar bazasini zamonaviy Python backendiga integratsiya qildim.</li>
-            <li>Bir nechta API xizmatlari uchun JWT asosida autentifikatsiya va ruxsatlarni amalga oshirdim.</li>
-            <li>Redis keshlash va sessiya boshqaruvini joriy etdim; Docker va Docker Compose bilan containerlashtirdim.</li>
-            <li>Korporativ ERP ma'lumotlarini sinxronlashtirish uchun SAP B1 va SAP HANA integratsiyasini amalga oshirdim.</li>
+            <li>HR va biznes ma'lumotlari uchun Firebird bazasini zamonaviy Python backendiga integratsiya qildim.</li>
+            <li>JWT autentifikatsiya va ruxsatlarni amalga oshirdim; Docker Compose bilan konteynerlashtirdim.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">FastAPI</span>
@@ -755,7 +808,6 @@
             <span class="tech-pill">aiogram</span>
             <span class="tech-pill">Docker</span>
             <span class="tech-pill">SAP B1</span>
-            <span class="tech-pill">SAP HANA</span>
           </div>
         </div>
 
@@ -763,28 +815,23 @@
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
-              <span class="en">Linux System & Network Administrator</span>
+              <span class="en">Linux System &amp; Network Administrator</span>
               <span class="uz">Linux Tizim va Tarmoq Administratori</span>
             </div>
             <div class="exp-period">2021 — 2022</div>
           </div>
-          <div class="exp-company">
-            <span class="en">"Munis Savdo" · Fargona</span>
-            <span class="uz">"Munis Savdo" · Farg'ona</span>
-          </div>
+          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
           <ul class="exp-bullets en">
             <li>Deployed and administered Ubuntu/Debian Linux servers hosting production applications and call-center systems.</li>
-            <li>Configured, deployed, and maintained FreePBX and Issabel PBX systems for company call-center operations — managing extensions, ring groups, IVR menus, call queues, and CDR reporting on an ongoing basis.</li>
+            <li>Configured and maintained FreePBX and Issabel PBX systems: extensions, ring groups, IVR menus, call queues, and CDR reporting.</li>
             <li>Managed Mikrotik routers: DHCP, NAT, firewall rules, traffic queues, and L2TP VPN tunnels.</li>
-            <li>Performed disk management, partition planning, and system resource optimization on production servers.</li>
-            <li>Ensured network uptime, monitored bandwidth, and resolved infrastructure incidents.</li>
+            <li>Disk management, partition planning, and system resource optimization on production servers.</li>
           </ul>
           <ul class="exp-bullets uz">
             <li>Ubuntu/Debian serverlarni joylashtirdim va boshqardim; call-center tizimlarini ishga tushirdim.</li>
-            <li>FreePBX va Issabel PBX tizimlarini sozladim, joylashtirdim va doimiy ravishda qo'llab-quvvatladim: kengaytmalar, qo'ng'iroq guruhlari, IVR menyular, navbatlar va CDR hisobotlarni boshqardim.</li>
-            <li>Mikrotik routerlarni boshqardim: DHCP, NAT, firewall qoidalari, trafik navbatlari va L2TP VPN tunnellari.</li>
+            <li>FreePBX va Issabel PBX tizimlarini sozladim: kengaytmalar, qo'ng'iroq guruhlari, IVR menyular, navbatlar va CDR hisobotlar.</li>
+            <li>Mikrotik routerlarni boshqardim: DHCP, NAT, firewall qoidalari va L2TP VPN tunnellari.</li>
             <li>Production serverlarda disk boshqaruvi, bo'lim rejalashtirish va resurslarni optimallashtirish.</li>
-            <li>Tarmoq uzluksizligini ta'minladim, kenglik monitoringi va infratuzilma hodisalarini bartaraf etdim.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">Linux</span>
@@ -794,22 +841,20 @@
             <span class="tech-pill">Mikrotik</span>
             <span class="tech-pill">VoIP</span>
             <span class="tech-pill">L2TP</span>
-            <span class="tech-pill">DHCP/NAT</span>
             <span class="tech-pill">Firewall</span>
           </div>
         </div>
-      </div>
+
+      </div><!-- /experience -->
 
       <!-- PROJECTS -->
       <div class="section">
-        <div class="section-label">
+        <div class="section-title">
           <span class="en">Key Projects</span>
           <span class="uz">Asosiy Loyihalar</span>
         </div>
 
-        <!-- ═══════════════════════════════════════════════════
-             NEW PROJECT: COLLECTOR BOT
-        ════════════════════════════════════════════════════ -->
+        <!-- COLLECTOR BOT -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
@@ -819,70 +864,64 @@
             <div class="exp-period">2024 — <span class="en">Present</span><span class="uz">Hozir</span></div>
           </div>
           <div class="exp-company">
-            <span class="en">Sole Developer · Production system · "Munis Savdo"</span>
-            <span class="uz">Yagona ishlab chiquvchi · Production tizim · "Munis Savdo"</span>
+            <span class="en">Sole Developer · Production · "Munis Savdo"</span>
+            <span class="uz">Yagona ishlab chiquvchi · Production · "Munis Savdo"</span>
           </div>
 
-          <!-- Architecture diagram -->
           <div class="arch-block">
-            <span class="hl2">[Telegram]</span> ←──── aiogram webhook ────→ <span class="hl">[Bot Service :8001]</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌──────────────┬─────┴──────────────┐<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-            &nbsp;&nbsp;<span class="hl">[PostgreSQL]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl">[Redis]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl">[FastAPI :8000]</span><br>
-            &nbsp;locations/users&nbsp;&nbsp;session cache&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌────────┴────────┐<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl2">[PostgreSQL]</span>&nbsp;&nbsp;&nbsp;<span class="hl2">[Firebird DB]</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;write locations&nbsp;&nbsp;auth · contracts
+            <span class="hl2">[Telegram]</span> ←── aiogram webhook ──→ <span class="hl">[Bot :8001]</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌──────────────┬──────┴──────────┐<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+            &nbsp;&nbsp;<span class="hl">[PostgreSQL]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl">[Redis]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl">[FastAPI :8000]</span><br>
+            &nbsp;&nbsp;users/locations&nbsp;&nbsp;sessions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌──────┴──────┐<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl2">[PostgreSQL]</span>&nbsp;<span class="hl2">[Firebird×N]</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;write locations&nbsp;auth·contracts
           </div>
 
           <ul class="exp-bullets en">
-            <li>Designed and built a full dual-service platform from scratch: an <strong>aiogram Telegram bot</strong> (field agent interface) and a <strong>FastAPI REST backend</strong> (dashboard API + business logic), running as separate Docker services.</li>
-            <li>Bot service handles agent registration with FSM multi-step flow (full name → phone → branch selection), live location sharing (8-hour sessions), branch switching, and Telegram WebApp integration for a rich in-app dashboard.</li>
-            <li>FastAPI backend exposes three router groups: <code>auth</code> (JWT + Redis token store with refresh/logout), <code>firebird</code> (contracts, payments, comments, statistics against legacy Firebird DB), and <code>pg</code> (PostgreSQL branch/location CRUD).</li>
-            <li>Implemented <strong>dual-database architecture</strong>: async PostgreSQL via SQLAlchemy 2.0 (user registry, live locations, branches) + synchronous Firebird via a dynamic engine registry — each branch maps to its own isolated Firebird database file, loaded at runtime from <code>db.json</code> config.</li>
-            <li>Built a Redis-backed JWT auth system: access token + refresh token with configurable TTL, token invalidation on logout, and user session caching to reduce DB hits on every request.</li>
-            <li>Live GPS tracking pipeline: agents share 8-hour live location via Telegram; bot middleware validates active session from Redis, then writes GPS coordinates to PostgreSQL at configurable intervals (e.g. every 0.5 min), enabling dashboard to display real-time field agent positions.</li>
-            <li>Firebird integration layer: dynamic engine registry pools connections to <em>N</em> Firebird databases (one per company branch); all legacy ERP queries (contracts, payment schedules, client comments, agent statistics) run through the appropriate branch DB selected by authenticated user's <code>workPlace</code> attribute.</li>
-            <li>Swagger UI protected via HTTP Basic Auth; CORS middleware configured; Docker Compose orchestrates all services (bot, API, PostgreSQL, Redis) with health checks and dependency ordering.</li>
+            <li>Designed and built a full dual-service platform from scratch: <strong>aiogram bot</strong> (field agent interface) + <strong>FastAPI REST backend</strong> (dashboard API + business logic) as separate Docker services.</li>
+            <li>Bot FSM multi-step registration (name → phone → branch), 8-hour live GPS sessions, branch switching, Telegram WebApp integration for in-app dashboard.</li>
+            <li>FastAPI: three router groups — <code>auth</code> (JWT + Redis token store, refresh/logout), <code>firebird</code> (contracts, payments, comments, stats), <code>pg</code> (branches, location CRUD).</li>
+            <li><strong>Dual-database architecture</strong>: async PostgreSQL via SQLAlchemy 2.0 + dynamic Firebird engine registry (N databases, one per branch, loaded from <code>db.json</code> at runtime).</li>
+            <li>Live GPS pipeline: bot middleware validates Redis session → writes GPS coords to PostgreSQL at 0.5-min intervals → dashboard shows real-time agent positions.</li>
+            <li>Swagger UI behind HTTP Basic Auth; Docker Compose orchestrates 4 services with health checks and dependency ordering; GitHub Actions CI/CD.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Noldan to'liq ikki xizmatli platformani yaratdim: <strong>aiogram Telegram bot</strong> (dala agenti interfeysi) va <strong>FastAPI REST backend</strong> (dashboard API + biznes mantiq), alohida Docker servislari sifatida ishlaydigan.</li>
-            <li>Bot xizmati agentlarni ro'yxatdan o'tkazishni FSM ko'p bosqichli oqim bilan boshqaradi (ism → telefon → filial tanlash), 8 soatlik jonli lokatsiya sessiyalari, filial almashtirish va boy interfeys uchun Telegram WebApp integratsiyasini ta'minlaydi.</li>
-            <li>FastAPI backend uchta router guruhini taqdim etadi: <code>auth</code> (JWT + Redis token do'koni, refresh/logout), <code>firebird</code> (shartnomalar, to'lovlar, izohlar, statistika — Firebird DB orqali) va <code>pg</code> (PostgreSQL filial/lokatsiya CRUD).</li>
-            <li><strong>Ikki ma'lumotlar bazasi arxitekturasini</strong> amalga oshirdim: async PostgreSQL SQLAlchemy 2.0 orqali (foydalanuvchilar, jonli lokatsiyalar, filiallar) + sinxron Firebird dinamik engine registry orqali — har bir filial <code>db.json</code> dan yuklangan o'z Firebird bazasiga ulangan.</li>
-            <li>Redis asosida JWT auth tizimini yaratdim: sozlanuvchi TTL bilan access + refresh token, logout da tokenni bekor qilish va har so'rovda DB yukini kamaytirish uchun foydalanuvchi sessiyasini keshlash.</li>
-            <li>Jonli GPS kuzatuv pipeline'i: agentlar 8 soatlik jonli lokatsiyani Telegram orqali ulashadi; bot middleware Redis'dan faol sessiyani tekshiradi, so'ng GPS koordinatalarni sozlanuvchi intervallarda PostgreSQL'ga yozadi — dashboard real vaqtda dala agentlari joylashuvini ko'rsatadi.</li>
-            <li>Firebird integratsiya qatlami: dinamik engine registry <em>N</em> ta Firebird bazasiga (har bir kompaniya filiali uchun alohida) ulanishlar pool'ini boshqaradi; barcha merosiy ERP so'rovlar autentifikatsiyalangan foydalanuvchining <code>workPlace</code> atributiga mos filial bazasiga yo'naltiriladi.</li>
-            <li>Swagger UI HTTP Basic Auth bilan himoyalangan; CORS middleware sozlangan; Docker Compose barcha xizmatlarni (bot, API, PostgreSQL, Redis) health check va dependency ordering bilan orkestratsiya qiladi.</li>
+            <li>Noldan to'liq ikki xizmatli platformani yaratdim: <strong>aiogram bot</strong> (dala agenti interfeysi) + <strong>FastAPI REST backend</strong>, alohida Docker servislar sifatida.</li>
+            <li>Bot FSM ko'p bosqichli ro'yxat (ism → telefon → filial), 8 soatlik jonli GPS sessiyalar, Telegram WebApp integratsiyasi.</li>
+            <li>FastAPI: uchta router — <code>auth</code> (JWT + Redis, refresh/logout), <code>firebird</code> (shartnomalar, to'lovlar, izohlar), <code>pg</code> (filiallar, lokatsiya CRUD).</li>
+            <li><strong>Ikki baza arxitekturasi</strong>: async PostgreSQL SQLAlchemy 2.0 + dinamik Firebird engine registry (har filial uchun alohida baza, <code>db.json</code> dan yuklanadi).</li>
+            <li>Jonli GPS pipeline: bot middleware Redis sessiyani tekshiradi → 0.5 daqiqada GPS PostgreSQL'ga yoziladi → dashboard real vaqtda agentlar joylashuvini ko'rsatadi.</li>
+            <li>Swagger UI HTTP Basic Auth bilan; Docker Compose 4 servisni health check bilan boshqaradi; GitHub Actions CI/CD.</li>
           </ul>
 
-          <!-- Feature grid -->
           <div class="feat-grid">
             <div class="feat-card">
               <div class="feat-card-title en">Bot Service</div>
               <div class="feat-card-title uz">Bot Xizmati</div>
-              <div class="feat-card-body en">FSM registration · Live GPS (8h) · WebApp · Branch switch · DbSessionMiddleware · WorkingTime gate</div>
-              <div class="feat-card-body uz">FSM ro'yxat · Jonli GPS (8 soat) · WebApp · Filial almashtirish · DbSessionMiddleware · Ish vaqti nazorati</div>
+              <div class="feat-card-body en">FSM reg · Live GPS 8h · WebApp · Branch switch · DbSessionMiddleware</div>
+              <div class="feat-card-body uz">FSM ro'yxat · Jonli GPS 8 soat · WebApp · Filial almashtirish</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">API Backend</div>
               <div class="feat-card-title uz">API Backend</div>
-              <div class="feat-card-body en">JWT + Refresh tokens · Redis session · Firebird registry · Contract / payment endpoints · Health check</div>
-              <div class="feat-card-body uz">JWT + Refresh tokenlar · Redis sessiya · Firebird registry · Shartnoma / to'lov endpointlari · Health check</div>
+              <div class="feat-card-body en">JWT + Refresh · Redis session · Firebird registry · Contracts / payments</div>
+              <div class="feat-card-body uz">JWT + Refresh · Redis sessiya · Firebird registry · Shartnomalar / to'lovlar</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">Dual Database</div>
               <div class="feat-card-title uz">Ikki Baza</div>
-              <div class="feat-card-body en">Async PostgreSQL (SQLAlchemy 2.0 + Alembic) · N×Firebird sync pools (dynamic registry per branch)</div>
-              <div class="feat-card-body uz">Async PostgreSQL (SQLAlchemy 2.0 + Alembic) · N×Firebird sinxron pool'lar (har filial uchun dinamik registry)</div>
+              <div class="feat-card-body en">Async PostgreSQL (SQLAlchemy 2.0 + Alembic) · N×Firebird dynamic pools</div>
+              <div class="feat-card-body uz">Async PostgreSQL (SQLAlchemy 2.0) · N×Firebird dinamik pool'lar</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">Infra</div>
               <div class="feat-card-title uz">Infratuzilma</div>
-              <div class="feat-card-body en">Docker Compose (4 services) · Webhook mode · Nginx-ready · GitHub Actions CI/CD · Pydantic v2 settings</div>
-              <div class="feat-card-body uz">Docker Compose (4 xizmat) · Webhook rejimi · Nginx-tayyor · GitHub Actions CI/CD · Pydantic v2 sozlamalar</div>
+              <div class="feat-card-body en">Docker Compose · Webhook · Nginx-ready · GitHub Actions · Pydantic v2</div>
+              <div class="feat-card-body uz">Docker Compose · Webhook · Nginx · GitHub Actions · Pydantic v2</div>
             </div>
           </div>
 
@@ -892,55 +931,36 @@
           </a>
 
           <div class="exp-tech">
-            <span class="tech-pill">aiogram 3.x</span>
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">asyncio</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">SQLAlchemy 2.0</span>
-            <span class="tech-pill">Alembic</span>
-            <span class="tech-pill">Firebird</span>
-            <span class="tech-pill">Redis</span>
-            <span class="tech-pill">JWT</span>
-            <span class="tech-pill">Pydantic v2</span>
-            <span class="tech-pill">Docker Compose</span>
-            <span class="tech-pill">Webhook</span>
-            <span class="tech-pill">Telegram WebApp</span>
-            <span class="tech-pill">Live GPS</span>
-            <span class="tech-pill">GitHub Actions</span>
+            <span class="tech-pill">aiogram 3.x</span><span class="tech-pill">FastAPI</span><span class="tech-pill">asyncio</span>
+            <span class="tech-pill">PostgreSQL</span><span class="tech-pill">SQLAlchemy 2.0</span><span class="tech-pill">Alembic</span>
+            <span class="tech-pill">Firebird</span><span class="tech-pill">Redis</span><span class="tech-pill">JWT</span>
+            <span class="tech-pill">Pydantic v2</span><span class="tech-pill">Docker Compose</span><span class="tech-pill">Telegram WebApp</span>
+            <span class="tech-pill">Live GPS</span><span class="tech-pill">GitHub Actions</span>
           </div>
         </div>
-        <!-- ═══════════════════════════════════════════════════
-             END COLLECTOR BOT
-        ════════════════════════════════════════════════════ -->
 
         <!-- ERP Analytics -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
-              <span class="en">ERP Business Intelligence & Analytics System</span>
+              <span class="en">ERP Business Intelligence &amp; Analytics System</span>
               <span class="uz">ERP Biznes Tahlil Tizimi</span>
             </div>
             <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span></div>
           </div>
           <ul class="exp-bullets en">
-            <li>Designed and built a suite of production ERP analytical reports still actively running — customer demographics (age, gender, location), contract analytics, and revenue flow dashboards.</li>
-            <li>Wrote complex SQL with correlated subqueries, multi-table JOINs (INNER, LEFT, OUTER), and aggregate functions (GROUP BY, HAVING, window functions) to extract actionable insights from large ERP datasets.</li>
-            <li>Customer segmentation queries enabled marketing team to target campaigns by age group, gender, and district; revenue dashboards gave management real-time payment flow visibility.</li>
-            <li>All queries optimized for performance on large transactional datasets and integrated directly into the ERP interface.</li>
+            <li>Built production ERP analytical reports still actively running: customer demographics (age, gender, location), contract analytics, revenue flow dashboards.</li>
+            <li>Complex SQL: correlated subqueries, multi-table JOINs (INNER/LEFT/OUTER), aggregate functions (GROUP BY, HAVING, window functions).</li>
+            <li>Customer segmentation enabled targeted marketing campaigns; revenue dashboards gave management real-time payment flow visibility.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Hozirda ham faol ishlaydigan ERP tahlil hisobotlari to'plamini yaratdim: mijozlar demografiyasi (yosh, jins, yashash manzili), shartnomalar tahlili va pul tushumlari dashboardlari.</li>
-            <li>Murakkab SQL so'rovlar yozdim: korrelyatsion subquery'lar, ko'p jadvallar JOIN'lari va agregat funksiyalar (GROUP BY, HAVING, oyna funksiyalar).</li>
-            <li>Mijozlar segmentatsiyasi marketing jamoasiga maqsadli kampaniyalar o'tkazish imkonini berdi; daromad dashboardlari menejmentga real vaqtda to'lov oqimini ko'rsatdi.</li>
-            <li>Barcha so'rovlar katta tranzaksion ma'lumotlar to'plamida ishlash uchun optimallashtirildi va bevosita ERP interfeysiga integratsiya qilindi.</li>
+            <li>Hozirda ham faol ishlaydigan ERP tahlil hisobotlarini yaratdim: mijozlar demografiyasi, shartnomalar tahlili va pul tushumlari dashboardlari.</li>
+            <li>Murakkab SQL: korrelyatsion subquery'lar, ko'p jadvallar JOIN'lari va agregat funksiyalar (GROUP BY, HAVING, oyna funksiyalar).</li>
+            <li>Mijozlar segmentatsiyasi marketing jamoasiga maqsadli kampaniyalar o'tkazish imkonini berdi.</li>
           </ul>
           <div class="exp-tech">
-            <span class="tech-pill">Advanced SQL</span>
-            <span class="tech-pill">Subqueries</span>
-            <span class="tech-pill">JOINs</span>
-            <span class="tech-pill">Aggregate Functions</span>
-            <span class="tech-pill">Window Functions</span>
-            <span class="tech-pill">Business Analytics</span>
+            <span class="tech-pill">Advanced SQL</span><span class="tech-pill">Subqueries</span>
+            <span class="tech-pill">JOINs</span><span class="tech-pill">Window Functions</span><span class="tech-pill">Business Analytics</span>
           </div>
         </div>
 
@@ -954,59 +974,40 @@
             <div class="exp-period">2023 — <span class="en">Present</span><span class="uz">Hozir</span></div>
           </div>
           <ul class="exp-bullets en">
-            <li>Built a contract-based multi-card charge engine: at scheduled intervals, the system automatically charges all linked plastic cards of active contract holders and processes payments in real time.</li>
-            <li>Implemented real-time database validation layer — each charge attempt is verified against live DB state before processing, preventing double-charges and stale-record errors.</li>
-            <li>Engineered automatic receipt (kvitansiya) generation immediately after each successful payment, with transaction records stored and queryable via API.</li>
-            <li>Built a customer card-binding flow: with user consent, personal bank cards are securely linked to accounts and used for automated debt/balance deductions without manual intervention.</li>
-            <li>Designed async task flows with FastAPI + asyncio to handle concurrent multi-card charge cycles without blocking; system is in active production with ongoing upgrades.</li>
+            <li>Contract-based multi-card charge engine: automatically charges linked plastic cards of active contract holders at scheduled intervals in real time.</li>
+            <li>Real-time DB validation layer — each charge verified against live DB state before processing, preventing double-charges and stale-record errors.</li>
+            <li>Auto receipt (kvitansiya) generation after each successful payment; card-binding flow with user consent.</li>
+            <li>Async task flows with FastAPI + asyncio for concurrent multi-card charge cycles. Active production, ongoing upgrades.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Shartnomaga asoslangan ko'p kartali to'lov tizimini yaratdim: belgilangan vaqtda tizim avtomatik ravishda aktiv shartnomadagi mijozlarning plastik kartalaridan pul ushlaydi va to'lovlarni real vaqtda qayta ishlaydi.</li>
-            <li>Real vaqtda ma'lumotlar bazasi tekshiruv qatlamini joriy etdim — har bir to'lov urinishi qayta ishlashdan oldin jonli DB holati bilan tasdiqlanadi.</li>
-            <li>Har bir muvaffaqiyatli to'lovdan so'ng darhol avtomatik kvitansiya yaratishni muhandis qildim.</li>
-            <li>Mijozlarning roziligi asosida shaxsiy bank kartalarini hisobga bog'lash oqimini yaratdim.</li>
-            <li>FastAPI + asyncio yordamida bir vaqtda ko'p kartali to'lov tsikllarini bloklashsiz boshqarish uchun asinxron task oqimlarini loyihaladim.</li>
+            <li>Shartnomaga asoslangan ko'p kartali to'lov tizimi: aktiv shartnomadagi mijozlarning kartalaridan avtomatik pul ushlaydi.</li>
+            <li>Real vaqtda DB tekshiruv qatlami — ikki marta to'lov va eskirgan yozuv xatolarini oldini oladi.</li>
+            <li>Har to'lovdan so'ng avtomatik kvitansiya yaratish; mijozlarning roziligi asosida karta bog'lash.</li>
           </ul>
           <div class="exp-tech">
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">asyncio</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Redis</span>
-            <span class="tech-pill">JWT</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">Payment Gateway</span>
-            <span class="tech-pill">Card Tokenization</span>
+            <span class="tech-pill">FastAPI</span><span class="tech-pill">asyncio</span><span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">Redis</span><span class="tech-pill">Payment Gateway</span><span class="tech-pill">Card Tokenization</span>
           </div>
         </div>
 
-        <!-- CV Bot -->
+        <!-- Other projects — compact -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
               <span class="en">CV / Anketa Telegram Bot</span>
               <span class="uz">CV / Anketa Telegram Bot</span>
             </div>
-            <div class="exp-period">2023 · <span class="en">1 month delivery</span><span class="uz">1 oyda yetkazib berildi</span></div>
+            <div class="exp-period">2023 · <span class="en">1 month</span><span class="uz">1 oy</span></div>
           </div>
           <ul class="exp-bullets en">
-            <li>Sole developer: designed, built, and deployed a full CV collection bot for the company in under 1 month.</li>
-            <li>Bot guided applicants through a structured multi-step anketa (questionnaire) flow, saving HR team hours of manual data entry.</li>
-            <li>Connected bot data to backend PostgreSQL via FastAPI; results exported for HR review workflows.</li>
+            <li>Sole developer — designed, built, and deployed a full CV collection bot in under 1 month. Multi-step FSM questionnaire flow, PostgreSQL via FastAPI backend.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Yagona ishlab chiquvchi sifatida kompaniya uchun to'liq CV to'plash botini 1 oy ichida loyihalab, yaratib va joylashtirdim.</li>
-            <li>Bot abiturientlarni ko'p bosqichli anketa oqimi orqali yo'naltirdi; HR jamoasining qo'l bilan ma'lumot kiritish yukini sezilarli kamaytirdi.</li>
-            <li>Bot ma'lumotlarini FastAPI orqali backend PostgreSQL'ga uladi; natijalar HR ko'rib chiqish jarayoni uchun eksport qilindi.</li>
+            <li>Yagona ishlab chiquvchi — 1 oy ichida to'liq CV to'plash botini yaratdim. Ko'p bosqichli FSM anketa oqimi, FastAPI orqali PostgreSQL backend.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tech-pill">aiogram</span>
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">SQLAlchemy</span>
-          </div>
+          <div class="exp-tech"><span class="tech-pill">aiogram</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">SQLAlchemy</span></div>
         </div>
 
-        <!-- HR Bot -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
@@ -1016,45 +1017,28 @@
             <div class="exp-period">2024</div>
           </div>
           <ul class="exp-bullets en">
-            <li>Developed a bilingual (Uzbek/Russian) HR management bot using aiogram with Google Maps Distance Matrix API integration for location-based workflows.</li>
-            <li>Backend powered by FastAPI with GraphQL layer (Strawberry library) for flexible HR data queries.</li>
+            <li>Bilingual (Uzbek/Russian) HR bot with Google Maps Distance Matrix API; FastAPI + GraphQL (Strawberry) backend.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>aiogram yordamida ikki tilli (O'zbek/Rus) HR boshqaruv botini ishladim; joylashuv asosida jarayonlar uchun Google Maps Distance Matrix API integratsiyasi.</li>
-            <li>Backend FastAPI va moslashuvchan HR ma'lumotlari so'rovlari uchun GraphQL qatlami (Strawberry kutubxonasi) bilan ta'minlandi.</li>
+            <li>Ikki tilli (O'zbek/Rus) HR bot, Google Maps Distance Matrix API; FastAPI + GraphQL (Strawberry) backend.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tech-pill">aiogram</span>
-            <span class="tech-pill">GraphQL</span>
-            <span class="tech-pill">Strawberry</span>
-            <span class="tech-pill">FastAPI</span>
-          </div>
+          <div class="exp-tech"><span class="tech-pill">aiogram</span><span class="tech-pill">GraphQL</span><span class="tech-pill">Strawberry</span><span class="tech-pill">FastAPI</span></div>
         </div>
 
-        <!-- CV Management API -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">CV Management API</div>
             <div class="exp-period">2024</div>
           </div>
           <ul class="exp-bullets en">
-            <li>Built a full-featured REST API with 16 models, JWT auth, async PostgreSQL, and a generic CRUDBase pattern using FastAPI + SQLAlchemy + Pydantic v2.</li>
-            <li>Resolved complex Alembic migration challenges: cascade drops, column type casting, and revision mismatches in production.</li>
+            <li>16-model REST API with JWT auth, async PostgreSQL, generic CRUDBase pattern — FastAPI + SQLAlchemy + Pydantic v2. Resolved complex Alembic migration challenges in production.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>FastAPI + SQLAlchemy + Pydantic v2 yordamida 16 ta model, JWT autentifikatsiya va umumiy CRUDBase pattern bilan to'liq REST API yaratdim.</li>
-            <li>Productiondagi murakkab Alembic migratsiya muammolarini hal qildim: cascade drop, ustun turini o'zgartirish va revision nomuvofiqliklar.</li>
+            <li>16 ta model, JWT auth, async PostgreSQL, umumiy CRUDBase pattern — FastAPI + SQLAlchemy + Pydantic v2. Productiondagi murakkab Alembic muammolarini hal qildim.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Alembic</span>
-            <span class="tech-pill">Pydantic v2</span>
-            <span class="tech-pill">JWT</span>
-          </div>
+          <div class="exp-tech"><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Alembic</span><span class="tech-pill">Pydantic v2</span></div>
         </div>
 
-        <!-- Credit Limit Engine -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
@@ -1064,55 +1048,32 @@
             <div class="exp-period">2024</div>
           </div>
           <ul class="exp-bullets en">
-            <li>Designed and built an automated credit limit scoring system that calculates each customer's re-purchase eligibility based on their full payment history from previous contracts.</li>
-            <li>Implemented a mathematical scoring formula: factors such as payment regularity, overdue frequency, total repaid amount, and contract completion rate are weighted to produce a dynamic limit value per customer.</li>
-            <li>System queries historical contract and payment data from the database, applies the formula in real time, and returns an approved re-purchase limit — fully automated with no manual review needed for standard cases.</li>
-            <li>Enabled the business to offer personalized purchase limits to returning customers, improving conversion rates and reducing default risk.</li>
+            <li>Automated credit scoring system — calculates re-purchase eligibility from full payment history. Mathematical formula: payment regularity, overdue frequency, repaid amount, completion rate → dynamic limit per customer. Fully automated, no manual review needed.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Har bir mijozning avvalgi shartnomalaridagi to'lov tarixi asosida qayta xarid huquqini avtomatik hisoblaydigan kredit limit tizimini loyihalab yaratdim.</li>
-            <li>Matematik baholash formulasini joriy etdim: to'lov muntazamligi, muddati o'tgan to'lovlar chastotasi, jami to'langan summa va shartnomani yakunlash darajasi kabi omillar og'irlik koeffitsientlari bilan hisoblab, har bir mijoz uchun dinamik limit qiymati shakllanadi.</li>
-            <li>Tizim bazadan tarixiy ma'lumotlarni so'raydi, formulani real vaqtda qo'llaydi va tasdiqlangan qayta xarid limitini qaytaradi — standart holatlarda to'liq avtomatik.</li>
-            <li>Biznesga qaytuvchi mijozlarga shaxsiy xarid limitlarini taklif etish imkonini berdi; konversiya darajasini oshirdi va to'lamaslik riskini kamaytirdi.</li>
+            <li>Avtomatik kredit baholash tizimi — to'liq to'lov tarixiga asoslanib qayta xarid limitini hisoblaydi. Matematik formula: muntazamlik, muddati o'tganlar, jami to'langan, yakunlash darajasi → har mijoz uchun dinamik limit. To'liq avtomatik.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Advanced SQL</span>
-            <span class="tech-pill">Scoring Algorithm</span>
-            <span class="tech-pill">Business Logic</span>
-          </div>
+          <div class="exp-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Advanced SQL</span><span class="tech-pill">Scoring Algorithm</span></div>
         </div>
 
-        <!-- Hikvision -->
         <div class="exp-item">
           <div class="exp-header">
             <div class="exp-role">
-              <span class="en">Employee Attendance System via Hikvision Cameras</span>
-              <span class="uz">Hikvision Kameralari Orqali Xodimlar Davomat Tizimi</span>
+              <span class="en">Employee Attendance System via Hikvision</span>
+              <span class="uz">Hikvision Orqali Xodimlar Davomat Tizimi</span>
             </div>
             <div class="exp-period">2023</div>
           </div>
           <ul class="exp-bullets en">
-            <li>Integrated Hikvision IP cameras with a Python backend to automate employee check-in / check-out tracking — eliminating manual attendance logging.</li>
-            <li>Built the data pipeline: camera events → real-time API ingestion → PostgreSQL records → attendance reports per employee and department.</li>
-            <li>System accurately captured arrival and departure times, enabling HR team to generate working hours reports and detect absences automatically.</li>
+            <li>Integrated Hikvision IP cameras with Python backend for automated check-in/check-out tracking. Pipeline: camera events → real-time API → PostgreSQL → per-employee attendance reports.</li>
           </ul>
           <ul class="exp-bullets uz">
-            <li>Xodimlarning keldi-ketdi vaqtlarini avtomatik kuzatish uchun Hikvision IP kameralarini Python backend bilan integratsiya qildim.</li>
-            <li>Ma'lumotlar pipeline'ini yaratdim: kamera hodisalari → real vaqtda API qabul → PostgreSQL yozuvlari → xodim va bo'lim bo'yicha davomat hisobotlari.</li>
-            <li>Tizim kelish va ketish vaqtlarini aniq qayd etdi; HR jamoasi ish soatlari hisobotlarini yaratish va sababsiz kelmagan xodimlarni avtomatik aniqlash imkoniyatiga ega bo'ldi.</li>
+            <li>Hikvision IP kameralarini Python backend bilan integratsiya qildim. Pipeline: kamera hodisalari → real-vaqt API → PostgreSQL → xodim bo'yicha davomat hisobotlari.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Real-time Events</span>
-          </div>
+          <div class="exp-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Real-time Events</span></div>
         </div>
 
-      </div><!-- /section projects -->
+      </div><!-- /projects -->
 
     </main>
   </div><!-- /cv-grid -->
@@ -1122,7 +1083,7 @@
       <span class="en">Last updated: 2026</span>
       <span class="uz">Oxirgi yangilangan: 2026</span>
     </span>
-    <span>Python Backend Developer · Middle · Uzbekistan, Fargona</span>
+    <span>Python Backend Developer · Middle · Uzbekistan, Farg'ona</span>
   </footer>
 
 </div><!-- /wrapper -->
