@@ -95,13 +95,21 @@
   /* ── HEADER ── */
   header {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     gap: 32px;
     align-items: end;
     padding-bottom: 40px;
     margin-bottom: 52px;
     border-bottom: 2px solid var(--accent);
     animation: fadeIn 0.5s 0.05s ease both;
+  }
+
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
   }
 
   .role-label {
@@ -492,8 +500,9 @@
     .wrapper { padding: 28px 20px 48px; }
     .cv-grid { grid-template-columns: 1fr; }
     .sidebar { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 32px; margin-bottom: 32px; }
-    header { grid-template-columns: 1fr; }
-    .contacts { align-items: flex-start; }
+    header { grid-template-columns: 1fr auto; }
+    .contacts { align-items: flex-start; grid-column: 1 / -1; order: 3; }
+    .profile-photo { width: 88px; height: 88px; order: 2; }
     .name { font-size: 40px; }
     .feat-grid { grid-template-columns: 1fr; }
   }
@@ -550,6 +559,7 @@
         <span class="c-dot"></span>Fargona, Uzbekistan
       </span>
     </div>
+    <img class="profile-photo" src="profile.png" alt="Alyorjon Aminboyev">
   </header>
 
   <!-- GRID -->
