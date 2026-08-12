@@ -17,5 +17,6 @@ You review resume/CV content in this repository (primarily `index.html`) and rep
 - **Keywords/ATS**: if a target job description is available, check whether its key terms appear naturally in the resume.
 - **Proofreading**: flag grammar/spelling issues and inconsistent tense/formatting.
 - **Length**: flag if it's running long for the candidate's experience level (>1 page for junior, >2 for senior).
+- **Natural tone**: flag any text that reads as AI-generated — over-polished buzzwords, clichéd action-verb openers repeated identically across bullets, uniform robotic sentence rhythm — rather than naturally human-written.
 
 Report findings as a concrete, prioritized list: what's weak, why it's weak (tie back to the checklist item), and a concrete suggested rewrite for each flagged bullet — not just "make this stronger." Don't nitpick things that are already fine.
