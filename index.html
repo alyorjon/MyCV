@@ -492,8 +492,9 @@
   }
 
   /* ── LANG VISIBILITY ── */
-  .lang-en .uz { display: none !important; }
-  .lang-uz .en { display: none !important; }
+  .lang-en .uz, .lang-en .ru { display: none !important; }
+  .lang-uz .en, .lang-uz .ru { display: none !important; }
+  .lang-ru .en, .lang-ru .uz { display: none !important; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 680px) {
@@ -522,6 +523,7 @@
   <div class="top-bar">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('uz')">UZ</button>
+    <button class="lang-btn" onclick="setLang('ru')">RU</button>
   </div>
 
   <!-- HEADER -->
@@ -530,16 +532,19 @@
       <div class="role-label">
         <span class="en">ERP &amp; Data Analytics Specialist</span>
         <span class="uz">ERP va Data Analitika Mutaxassisi</span>
+        <span class="ru">Специалист по ERP и аналитике данных</span>
       </div>
       <div class="name">Alyorjon<br>Aminboyev</div>
       <div class="tagline">
         <span class="en">I build the ERP and backend systems a business actually runs on day to day.</span>
         <span class="uz">Biznes kundalik ishlashi uchun tayanadigan ERP va backend tizimlarini quraman.</span>
+        <span class="ru">Строю ERP и backend-системы, на которых бизнес реально держится каждый день.</span>
       </div>
       <div class="availability">
         <span class="pulse-dot"></span>
         <span class="en">Open to opportunities</span>
         <span class="uz">Ish takliflariga ochiqman</span>
+        <span class="ru">Рассматриваю предложения о работе</span>
       </div>
     </div>
     <div class="contacts">
@@ -559,7 +564,7 @@
         <span class="c-dot"></span>linkedin
       </a>
       <span class="contact-item">
-        <span class="c-dot"></span>Fargona, Uzbekistan
+        <span class="c-dot"></span><span class="en">Fargona, Uzbekistan</span><span class="uz">Farg'ona, O'zbekiston</span><span class="ru">Фергана, Узбекистан</span>
       </span>
     </div>
     <img class="profile-photo" src="profile.png" alt="Alyorjon Aminboyev">
@@ -576,12 +581,16 @@
         <div class="section-title">
           <span class="en">About</span>
           <span class="uz">Haqida</span>
+          <span class="ru">Обо мне</span>
         </div>
         <p class="about-text en">
           I've spent the last <strong>3+ years</strong> around ERP systems — mostly SAP B1 — administering them, building the reports and dashboards people actually use day to day, and writing the SQL behind them over fairly large business datasets. Before that I came from a backend background (Python, REST APIs), which still comes in handy whenever a project needs something custom instead of an out-of-the-box fix. My path so far has gone <strong>ERP administration → data analytics → SAP B1 implementation &amp; project management</strong>, and I still lean on the engineering side when a problem calls for it.
         </p>
         <p class="about-text uz">
           Oxirgi <strong>3+ yildan</strong> beri asosan SAP B1 bilan ishlayman — uni administratsiya qilish, odamlar kundalik foydalanadigan hisobot va dashboardlarni tuzish, shu bilan birga katta hajmdagi biznes ma'lumotlari ustida murakkab SQL so'rovlar yozish. Undan oldin backend tomonidan kelganman (Python, REST API), va bu ko'nikma hozir ham loyihaga tayyor yechim yetmay, maxsus narsa kerak bo'lganda foydali bo'lib qolyapti. Yo'lim taxminan shunday bo'ldi: <strong>ERP administrator → data analitik → SAP B1 joriy etish va loyiha menejmenti</strong>, backend esa kerak bo'lganda hali ham qo'lga oladigan ko'nikma bo'lib qolmoqda.
+        </p>
+        <p class="about-text ru">
+          Последние <strong>3+ года</strong> я плотно работаю с ERP-системами — в основном с SAP B1: администрирую их, собираю отчёты и дашборды, которыми люди реально пользуются каждый день, и пишу под них SQL на довольно больших массивах бизнес-данных. До этого у меня был backend-опыт (Python, REST API), и он до сих пор выручает, когда проекту нужно что-то нестандартное, а не готовое решение из коробки. Путь получился примерно такой: <strong>администрирование ERP → аналитика данных → внедрение SAP B1 и управление проектами</strong>, а к инженерной стороне я по-прежнему обращаюсь, когда задача этого требует.
         </p>
       </div>
 
@@ -590,6 +599,7 @@
         <div class="section-title">
           <span class="en">Tech Stack</span>
           <span class="uz">Texnologiyalar</span>
+          <span class="ru">Технологии</span>
         </div>
 
         <div class="skill-group">
@@ -608,6 +618,7 @@
           <div class="skill-group-name">
             <span class="en">Data Analytics</span>
             <span class="uz">Data Analitika</span>
+            <span class="ru">Аналитика данных</span>
           </div>
           <div class="skill-tags">
             <span class="tag hi">Excel</span>
@@ -671,18 +682,19 @@
         <div class="section-title">
           <span class="en">Languages</span>
           <span class="uz">Tillar</span>
+          <span class="ru">Языки</span>
         </div>
         <div class="lang-item">
           <div class="lang-row">
             <span class="lang-name">O'zbek</span>
-            <span class="lang-level"><span class="en">Native</span><span class="uz">Ona tili</span></span>
+            <span class="lang-level"><span class="en">Native</span><span class="uz">Ona tili</span><span class="ru">Родной</span></span>
           </div>
           <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
         </div>
         <div class="lang-item">
           <div class="lang-row">
             <span class="lang-name">Tojik</span>
-            <span class="lang-level"><span class="en">Native</span><span class="uz">Ona tili</span></span>
+            <span class="lang-level"><span class="en">Native</span><span class="uz">Ona tili</span><span class="ru">Родной</span></span>
           </div>
           <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
         </div>
@@ -696,7 +708,7 @@
         <div class="lang-item">
           <div class="lang-row">
             <span class="lang-name">English</span>
-            <span class="lang-level">B2 (Upper-Intermediate)</span>
+            <span class="lang-level"><span class="en">B2 (Upper-Intermediate)</span><span class="uz">B2 (Upper-Intermediate)</span><span class="ru">B2 (выше среднего)</span></span>
           </div>
           <div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div>
         </div>
@@ -707,21 +719,25 @@
         <div class="section-title">
           <span class="en">Education</span>
           <span class="uz">Ta'lim</span>
+          <span class="ru">Образование</span>
         </div>
         <div class="edu-item">
           <div class="edu-degree">
             <span class="en">Bachelor's · Information Technologies</span>
             <span class="uz">Bakalavr · Axborot texnologiyalari</span>
+            <span class="ru">Бакалавр · Информационные технологии</span>
           </div>
           <div class="edu-school">
             <span class="en">Fergana Polytechnic Institute · 2016–2020</span>
             <span class="uz">Farg'ona Politexnika Instituti · 2016–2020</span>
+            <span class="ru">Ферганский политехнический институт · 2016–2020</span>
           </div>
         </div>
         <div class="edu-item">
           <div class="edu-degree">
             <span class="en">Academic Lyceum · Exact Sciences</span>
             <span class="uz">Aniq fanlarga ixtisoslashtirilgan akademik litsey</span>
+            <span class="ru">Академический лицей · точные науки</span>
           </div>
           <div class="edu-school">2013–2016</div>
         </div>
@@ -729,6 +745,7 @@
           <div class="edu-degree">
             <span class="en">State School · Mathematics &amp; Physics</span>
             <span class="uz">Matematika va fizikaga ixtisoslashtirilgan davlat maktabi</span>
+            <span class="ru">Государственная школа · математика и физика</span>
           </div>
           <div class="edu-school">2004–2013</div>
         </div>
@@ -744,6 +761,7 @@
         <div class="section-title">
           <span class="en">Experience</span>
           <span class="uz">Ish Tajribasi</span>
+          <span class="ru">Опыт работы</span>
         </div>
 
         <!-- JOB 1 -->
@@ -752,10 +770,11 @@
             <div class="exp-role">
               <span class="en">SAP B1 Implementation Project Manager</span>
               <span class="uz">SAP B1 Joriy Etish Loyiha Menejeri</span>
+              <span class="ru">Руководитель проекта внедрения SAP B1</span>
             </div>
-            <div class="exp-period"><span class="en">2025 (parallel initiative)</span><span class="uz">2025 (parallel loyiha)</span></div>
+            <div class="exp-period"><span class="en">2025 (parallel initiative)</span><span class="uz">2025 (parallel loyiha)</span><span class="ru">2025 (параллельный проект)</span></div>
           </div>
-          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
+          <div class="exp-company"><span class="en">"Munis Savdo" · Fargona</span><span class="uz">"Munis Savdo" · Farg'ona</span><span class="ru">«Мунис Савдо» · Фергана</span></div>
           <ul class="exp-bullets en">
             <li>Led end-to-end SAP Business One implementation: mapped all company business processes from warehouse intake to branch distribution, sales, and customer payments.</li>
             <li>Covered full business lifecycle modules: procurement, inventory, sales, AR/AP, collections, service, marketing, HR, and legal/enforcement workflows.</li>
@@ -767,6 +786,12 @@
             <li>To'liq biznes tsikli modullarini qamrab oldim: sotib olish, inventar, savdo, debitorlik/kreditorlik, qarzlarni undirish, servis, marketing, HR va sud-huquqiy jarayonlar.</li>
             <li>2 oy davomida SAP B1 tizim arxitekturasi va SAP HANA ichki tuzilmasini o'rgandim.</li>
             <li>Biznes bo'limlari va texnik jamoalar o'rtasida muvofiqlashtirish: real jarayonlarni SAP B1 konfiguratsiyasiga tarjima qildim.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Провёл внедрение SAP Business One от начала до конца: расписал все бизнес-процессы компании — от приёмки товара на склад до распределения по филиалам, продаж и оплат клиентов.</li>
+            <li>Закрыл модули полного бизнес-цикла: закупки, склад, продажи, дебиторка/кредиторка, взыскание задолженности, сервис, маркетинг, HR и юридические процессы.</li>
+            <li>Около 2 месяцев (июль–август 2025) разбирался в архитектуре SAP B1 и внутреннем устройстве SAP HANA, прежде чем приступить к проекту.</li>
+            <li>Координировал бизнес-подразделения и техническую команду, переводя реальные процессы в настройки и доработки SAP B1.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">SAP B1</span>
@@ -783,15 +808,17 @@
             <div class="exp-role">
               <span class="en">Python Backend Developer</span>
               <span class="uz">Python Backend Dasturchi</span>
+              <span class="ru">Python Backend-разработчик</span>
             </div>
-            <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span></div>
+            <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span><span class="ru">по н.в.</span></div>
           </div>
-          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
+          <div class="exp-company"><span class="en">"Munis Savdo" · Fargona</span><span class="uz">"Munis Savdo" · Farg'ona</span><span class="ru">«Мунис Савдо» · Фергана</span></div>
 
           <div class="sub-role">
             <div class="sub-role-title">
               <span class="en">↳ ERP System Administrator &amp; Analyst · 6 months</span>
               <span class="uz">↳ ERP Tizim Administratori va Analitigi · 6 oy</span>
+              <span class="ru">↳ Администратор и аналитик ERP-системы · 6 месяцев</span>
             </div>
             <ul class="exp-bullets en">
               <li>Built and maintained ERP analytical reports — customer demographics, contract analytics, revenue dashboards — that are still running in production.</li>
@@ -802,6 +829,11 @@
               <li>Production darajasidagi ERP tahlil hisobotlarini yaratdim va qo'llab-quvvatladim: mijozlar demografiyasi, shartnomalar tahlili va daromad dashboardlari.</li>
               <li>Subquery'lar, ko'p jadvallar JOIN'lari va oyna funksiyalar bilan murakkab SQL so'rovlar yozdim.</li>
               <li>Korporativ ma'lumotlar oqimini chuqur tushundim; bu keyinchalik backend va API dizayniga asos bo'ldi.</li>
+            </ul>
+            <ul class="exp-bullets ru">
+              <li>Создавал и поддерживал ERP-отчёты, которые до сих пор работают в продакшене: демография клиентов, аналитика по договорам, дашборды по выручке.</li>
+              <li>Писал под них SQL: подзапросы, JOIN по нескольким таблицам, оконные функции — на довольно больших ERP-датасетах.</li>
+              <li>Хорошо разобрался, как данные реально движутся внутри бизнеса — это потом пригодилось при проектировании backend и API.</li>
             </ul>
           </div>
 
@@ -819,6 +851,14 @@
             <li>SQLAlchemy ORM bilan PostgreSQL sxemalarini yaratdim; Alembic orqali migratsiyalarni boshqardim.</li>
             <li>HR va biznes ma'lumotlari uchun Firebird bazasini zamonaviy Python backendiga integratsiya qildim.</li>
             <li>JWT autentifikatsiya va ruxsatlarni amalga oshirdim; Docker Compose bilan konteynerlashtirdim.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Собрал с нуля Telegram-бота для сбора анкет/резюме за месяц на aiogram — автоматизировал для HR сбор данных о кандидатах.</li>
+            <li>Построил REST API для автоматической обработки платежей в реальном времени на FastAPI + asyncio; до сих пор поддерживаю и дорабатываю его.</li>
+            <li>Спроектировал схемы PostgreSQL через SQLAlchemy ORM, миграциями управлял через Alembic.</li>
+            <li>Интегрировал легаси-базы Firebird в современный Python-backend для бизнес-пайплайнов данных.</li>
+            <li>Реализовал JWT-аутентификацию и ролевой доступ в нескольких API-сервисах.</li>
+            <li>Настроил кэширование и сессии на Redis; контейнеризировал сервисы через Docker Compose.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">FastAPI</span>
@@ -841,10 +881,11 @@
             <div class="exp-role">
               <span class="en">Linux System &amp; Network Administrator</span>
               <span class="uz">Linux Tizim va Tarmoq Administratori</span>
+              <span class="ru">Системный и сетевой администратор Linux</span>
             </div>
             <div class="exp-period">2021 — 2022</div>
           </div>
-          <div class="exp-company">"Munis Savdo" · Farg'ona</div>
+          <div class="exp-company"><span class="en">"Munis Savdo" · Fargona</span><span class="uz">"Munis Savdo" · Farg'ona</span><span class="ru">«Мунис Савдо» · Фергана</span></div>
           <ul class="exp-bullets en">
             <li>Deployed and administered Ubuntu/Debian Linux servers hosting production applications and call-center systems.</li>
             <li>Configured and maintained FreePBX and Issabel PBX systems: extensions, ring groups, IVR menus, call queues, and CDR reporting.</li>
@@ -856,6 +897,12 @@
             <li>FreePBX va Issabel PBX tizimlarini sozladim: kengaytmalar, qo'ng'iroq guruhlari, IVR menyular, navbatlar va CDR hisobotlar.</li>
             <li>Mikrotik routerlarni boshqardim: DHCP, NAT, firewall qoidalari va L2TP VPN tunnellari.</li>
             <li>Production serverlarda disk boshqaruvi, bo'lim rejalashtirish va resurslarni optimallashtirish.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Разворачивал и администрировал серверы Ubuntu/Debian, на которых крутились продакшен-приложения и call-центр.</li>
+            <li>Настраивал и поддерживал FreePBX и Issabel PBX: внутренние номера, группы вызова, IVR-меню, очереди звонков и отчёты CDR.</li>
+            <li>Управлял маршрутизаторами Mikrotik: DHCP, NAT, правила firewall, очереди трафика и L2TP VPN-туннели.</li>
+            <li>Управление дисками, планирование разделов и оптимизация ресурсов на продакшен-серверах.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">Linux</span>
@@ -876,6 +923,7 @@
         <div class="section-title">
           <span class="en">Key Projects</span>
           <span class="uz">Asosiy Loyihalar</span>
+          <span class="ru">Ключевые проекты</span>
         </div>
 
         <!-- COLLECTOR BOT -->
@@ -884,12 +932,14 @@
             <div class="exp-role">
               <span class="en">Collector Bot — Collector Agent Monitoring Platform</span>
               <span class="uz">Collector Bot — Hududiy Agentlarini Kuzatish Platformasi</span>
+              <span class="ru">Collector Bot — платформа мониторинга агентов-инкассаторов</span>
             </div>
-            <div class="exp-period">2024 — <span class="en">Present</span><span class="uz">Hozir</span></div>
+            <div class="exp-period">2024 — <span class="en">Present</span><span class="uz">Hozir</span><span class="ru">по н.в.</span></div>
           </div>
           <div class="exp-company">
             <span class="en">Sole Developer · Production · "Munis Savdo"</span>
             <span class="uz">Yagona ishlab chiquvchi · Production · "Munis Savdo"</span>
+            <span class="ru">Единственный разработчик · Продакшен · «Мунис Савдо»</span>
           </div>
 
           <div class="arch-block">
@@ -921,31 +971,47 @@
             <li>Jonli GPS pipeline: bot middleware Redis sessiyani tekshiradi → 0.5 daqiqada GPS PostgreSQL'ga yoziladi → dashboard real vaqtda agentlar joylashuvini ko'rsatadi.</li>
             <li>Swagger UI HTTP Basic Auth bilan; Docker Compose 4 servisni health check bilan boshqaradi; GitHub Actions CI/CD.</li>
           </ul>
+          <ul class="exp-bullets ru">
+            <li>Спроектировал и построил с нуля платформу из двух сервисов: <strong>бот на aiogram</strong> (интерфейс для полевых агентов) + <strong>FastAPI REST backend</strong> (API дашборда + бизнес-логика) как отдельные Docker-сервисы.</li>
+            <li>Bot FSM: многошаговая регистрация (имя → телефон → филиал), живые GPS-сессии по 8 часов, переключение филиалов, интеграция Telegram WebApp для дашборда прямо в приложении.</li>
+            <li>FastAPI: три группы роутеров — <code>auth</code> (JWT + хранилище токенов в Redis, refresh/logout), <code>firebird</code> (договоры, платежи, комментарии, статистика), <code>pg</code> (филиалы, CRUD локаций).</li>
+            <li><strong>Архитектура с двумя базами данных</strong>: асинхронный PostgreSQL через SQLAlchemy 2.0 + динамический реестр движков Firebird (N баз, по одной на филиал, подгружаются из <code>db.json</code> в рантайме).</li>
+            <li>Пайплайн живого GPS: middleware бота проверяет сессию в Redis → координаты пишутся в PostgreSQL каждые 0.5 минуты → дашборд показывает позиции агентов в реальном времени.</li>
+            <li>Swagger UI за HTTP Basic Auth; Docker Compose оркестрирует 4 сервиса с health-check и порядком зависимостей; CI/CD на GitHub Actions.</li>
+          </ul>
 
           <div class="feat-grid">
             <div class="feat-card">
               <div class="feat-card-title en">Bot Service</div>
               <div class="feat-card-title uz">Bot Xizmati</div>
+              <div class="feat-card-title ru">Сервис бота</div>
               <div class="feat-card-body en">FSM reg · Live GPS 8h · WebApp · Branch switch · DbSessionMiddleware</div>
               <div class="feat-card-body uz">FSM ro'yxat · Jonli GPS 8 soat · WebApp · Filial almashtirish</div>
+              <div class="feat-card-body ru">FSM-регистрация · живой GPS 8ч · WebApp · смена филиала · DbSessionMiddleware</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">API Backend</div>
               <div class="feat-card-title uz">API Backend</div>
+              <div class="feat-card-title ru">API Backend</div>
               <div class="feat-card-body en">JWT + Refresh · Redis session · Firebird registry · Contracts / payments</div>
               <div class="feat-card-body uz">JWT + Refresh · Redis sessiya · Firebird registry · Shartnomalar / to'lovlar</div>
+              <div class="feat-card-body ru">JWT + Refresh · сессии в Redis · реестр Firebird · договоры / платежи</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">Dual Database</div>
               <div class="feat-card-title uz">Ikki Baza</div>
+              <div class="feat-card-title ru">Две базы данных</div>
               <div class="feat-card-body en">Async PostgreSQL (SQLAlchemy 2.0 + Alembic) · N×Firebird dynamic pools</div>
               <div class="feat-card-body uz">Async PostgreSQL (SQLAlchemy 2.0) · N×Firebird dinamik pool'lar</div>
+              <div class="feat-card-body ru">Async PostgreSQL (SQLAlchemy 2.0 + Alembic) · N×Firebird динамические пулы</div>
             </div>
             <div class="feat-card">
               <div class="feat-card-title en">Infra</div>
               <div class="feat-card-title uz">Infratuzilma</div>
+              <div class="feat-card-title ru">Инфраструктура</div>
               <div class="feat-card-body en">Docker Compose · Webhook · Nginx-ready · GitHub Actions · Pydantic v2</div>
               <div class="feat-card-body uz">Docker Compose · Webhook · Nginx · GitHub Actions · Pydantic v2</div>
+              <div class="feat-card-body ru">Docker Compose · Webhook · готов к Nginx · GitHub Actions · Pydantic v2</div>
             </div>
           </div>
 
@@ -969,8 +1035,9 @@
             <div class="exp-role">
               <span class="en">ERP Business Intelligence &amp; Analytics System</span>
               <span class="uz">ERP Biznes Tahlil Tizimi</span>
+              <span class="ru">Система бизнес-аналитики ERP</span>
             </div>
-            <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span></div>
+            <div class="exp-period">2022 — <span class="en">Present</span><span class="uz">Hozir</span><span class="ru">по н.в.</span></div>
           </div>
           <ul class="exp-bullets en">
             <li>Built the ERP reports that are still running in production today — customer demographics (age, gender, location), contract analytics, revenue flow dashboards.</li>
@@ -981,6 +1048,11 @@
             <li>Hozirda ham faol ishlaydigan ERP tahlil hisobotlarini yaratdim: mijozlar demografiyasi, shartnomalar tahlili va pul tushumlari dashboardlari.</li>
             <li>Murakkab SQL: korrelyatsion subquery'lar, ko'p jadvallar JOIN'lari va agregat funksiyalar (GROUP BY, HAVING, oyna funksiyalar).</li>
             <li>Mijozlar segmentatsiyasi marketing jamoasiga maqsadli kampaniyalar o'tkazish imkonini berdi.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Построил ERP-отчёты, которые до сих пор работают в продакшене — демография клиентов (возраст, пол, локация), аналитика по договорам, дашборды по денежным потокам.</li>
+            <li>Писал под них SQL: коррелированные подзапросы, JOIN по нескольким таблицам (INNER/LEFT/OUTER), агрегатные функции, GROUP BY/HAVING, оконные функции.</li>
+            <li>Маркетинг использует клиентские сегменты для таргетированных кампаний, а руководство смотрит дашборды выручки, чтобы видеть поток платежей в реальном времени.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">Advanced SQL</span><span class="tech-pill">Subqueries</span>
@@ -994,8 +1066,9 @@
             <div class="exp-role">
               <span class="en">Real-Time Automatic Payment Processing System</span>
               <span class="uz">Real Vaqt Avto-To'lov Tizimi</span>
+              <span class="ru">Система автоплатежей в реальном времени</span>
             </div>
-            <div class="exp-period">2023 — <span class="en">Present</span><span class="uz">Hozir</span></div>
+            <div class="exp-period">2023 — <span class="en">Present</span><span class="uz">Hozir</span><span class="ru">по н.в.</span></div>
           </div>
           <ul class="exp-bullets en">
             <li>Charges linked cards of active contract holders automatically on a schedule, based on the contract terms.</li>
@@ -1007,6 +1080,12 @@
             <li>Shartnomaga asoslangan ko'p kartali to'lov tizimi: aktiv shartnomadagi mijozlarning kartalaridan avtomatik pul ushlaydi.</li>
             <li>Real vaqtda DB tekshiruv qatlami — ikki marta to'lov va eskirgan yozuv xatolarini oldini oladi.</li>
             <li>Har to'lovdan so'ng avtomatik kvitansiya yaratish; mijozlarning roziligi asosida karta bog'lash.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Списывает деньги с привязанных карт по действующим договорам автоматически, по графику, согласно условиям договора.</li>
+            <li>Перед каждым списанием проверяется актуальное состояние в БД — так исключены повторные списания и работа с устаревшими данными.</li>
+            <li>После каждого успешного платежа формируется чек; привязка карты возможна только с согласия клиента.</li>
+            <li>Работает на FastAPI + asyncio, поэтому несколько карт можно списывать параллельно. Система в продакшене, время от времени дорабатываю.</li>
           </ul>
           <div class="exp-tech">
             <span class="tech-pill">FastAPI</span><span class="tech-pill">asyncio</span><span class="tech-pill">PostgreSQL</span>
@@ -1020,14 +1099,18 @@
             <div class="exp-role">
               <span class="en">CV / Anketa Telegram Bot</span>
               <span class="uz">CV / Anketa Telegram Bot</span>
+              <span class="ru">Telegram-бот для сбора анкет/резюме</span>
             </div>
-            <div class="exp-period">2023 · <span class="en">1 month</span><span class="uz">1 oy</span></div>
+            <div class="exp-period">2023 · <span class="en">1 month</span><span class="uz">1 oy</span><span class="ru">1 месяц</span></div>
           </div>
           <ul class="exp-bullets en">
             <li>Sole developer — designed, built, and deployed a full CV collection bot in under 1 month. Multi-step FSM questionnaire flow, PostgreSQL via FastAPI backend.</li>
           </ul>
           <ul class="exp-bullets uz">
             <li>Yagona ishlab chiquvchi — 1 oy ichida to'liq CV to'plash botini yaratdim. Ko'p bosqichli FSM anketa oqimi, FastAPI orqali PostgreSQL backend.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Единственный разработчик — спроектировал, собрал и запустил бота для сбора резюме меньше чем за месяц. Многошаговая FSM-анкета, PostgreSQL через FastAPI backend.</li>
           </ul>
           <div class="exp-tech"><span class="tech-pill">aiogram</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">SQLAlchemy</span></div>
         </div>
@@ -1037,6 +1120,7 @@
             <div class="exp-role">
               <span class="en">HR Management Telegram Bot</span>
               <span class="uz">HR Boshqaruv Telegram Bot</span>
+              <span class="ru">Telegram-бот для HR-управления</span>
             </div>
             <div class="exp-period">2024</div>
           </div>
@@ -1045,6 +1129,9 @@
           </ul>
           <ul class="exp-bullets uz">
             <li>Ikki tilli (O'zbek/Rus) HR bot, Google Maps Distance Matrix API; FastAPI + GraphQL (Strawberry) backend.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Двуязычный (узбекский/русский) HR-бот с Google Maps Distance Matrix API; backend на FastAPI + GraphQL (Strawberry).</li>
           </ul>
           <div class="exp-tech"><span class="tech-pill">aiogram</span><span class="tech-pill">GraphQL</span><span class="tech-pill">Strawberry</span><span class="tech-pill">FastAPI</span></div>
         </div>
@@ -1060,6 +1147,9 @@
           <ul class="exp-bullets uz">
             <li>16 ta model, JWT auth, async PostgreSQL, umumiy CRUDBase pattern — FastAPI + SQLAlchemy + Pydantic v2. Productiondagi murakkab Alembic muammolarini hal qildim.</li>
           </ul>
+          <ul class="exp-bullets ru">
+            <li>REST API на 16 моделей с JWT-аутентификацией, асинхронным PostgreSQL, обобщённым паттерном CRUDBase — FastAPI + SQLAlchemy + Pydantic v2. Решил в продакшене непростые проблемы с миграциями Alembic.</li>
+          </ul>
           <div class="exp-tech"><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Alembic</span><span class="tech-pill">Pydantic v2</span></div>
         </div>
 
@@ -1068,6 +1158,7 @@
             <div class="exp-role">
               <span class="en">Customer Re-Purchase Credit Limit Engine</span>
               <span class="uz">Mijozlar Qayta Xarid Limiti Tizimi</span>
+              <span class="ru">Движок кредитного лимита для повторных покупок</span>
             </div>
             <div class="exp-period">2024</div>
           </div>
@@ -1077,6 +1168,9 @@
           <ul class="exp-bullets uz">
             <li>Mijozning to'liq to'lov tarixiga qaraydi — qanchalik muntazam to'lagan, necha marta kechiktirgan, qancha to'lagan, yakunlash darajasi — va shu asosda kredit limitini o'zi hisoblab beradi, qo'lda ko'rib chiqishga hojat qolmaydi.</li>
           </ul>
+          <ul class="exp-bullets ru">
+            <li>Анализирует полную платёжную историю клиента — насколько регулярно платил, сколько раз просрочивал, сколько погасил, процент завершения — и на основе этого сам рассчитывает кредитный лимит, без ручной проверки.</li>
+          </ul>
           <div class="exp-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Advanced SQL</span><span class="tech-pill">Scoring Algorithm</span></div>
         </div>
 
@@ -1085,6 +1179,7 @@
             <div class="exp-role">
               <span class="en">Employee Attendance System via Hikvision</span>
               <span class="uz">Hikvision Orqali Xodimlar Davomat Tizimi</span>
+              <span class="ru">Учёт посещаемости сотрудников через Hikvision</span>
             </div>
             <div class="exp-period">2023</div>
           </div>
@@ -1093,6 +1188,9 @@
           </ul>
           <ul class="exp-bullets uz">
             <li>Hikvision IP kameralarini Python backend bilan integratsiya qildim. Pipeline: kamera hodisalari → real-vaqt API → PostgreSQL → xodim bo'yicha davomat hisobotlari.</li>
+          </ul>
+          <ul class="exp-bullets ru">
+            <li>Интегрировал IP-камеры Hikvision с Python backend для автоматического учёта прихода/ухода. Пайплайн: события с камер → API в реальном времени → PostgreSQL → отчёты по посещаемости для каждого сотрудника.</li>
           </ul>
           <div class="exp-tech"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Real-time Events</span></div>
         </div>
@@ -1106,8 +1204,13 @@
     <span>
       <span class="en">Last updated: 2026</span>
       <span class="uz">Oxirgi yangilangan: 2026</span>
+      <span class="ru">Обновлено: 2026</span>
     </span>
-    <span>ERP &amp; Data Analytics Specialist · Uzbekistan, Farg'ona</span>
+    <span>
+      <span class="en">ERP &amp; Data Analytics Specialist · Uzbekistan, Farg'ona</span>
+      <span class="uz">ERP &amp; Data Analitika Mutaxassisi · O'zbekiston, Farg'ona</span>
+      <span class="ru">Специалист по ERP и аналитике данных · Узбекистан, Фергана</span>
+    </span>
   </footer>
 
 </div><!-- /wrapper -->
